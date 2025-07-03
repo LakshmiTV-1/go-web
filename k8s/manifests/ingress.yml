@@ -5,15 +5,15 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx-example
+  ingressClassName: nginx   # use "nginx" unless you changed it
   rules:
-  - host: go-web-app-application
-  - http:
+  - host: go-web-app.local    # use your real host or IP if needed
+    http:
       paths:
       - path: /testpath
         pathType: Prefix
         backend:
           service:
-            name: test
+            name: go-web-app    # your actual service name
             port:
               number: 80
